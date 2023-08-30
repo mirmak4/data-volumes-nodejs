@@ -16,5 +16,9 @@ COPY . .
 # expose default http 80 port for our web app
 EXPOSE 80
 
+# path inside container which should be mapped to path outside container (HOST)
+# so that this data can hopefully survive shutdown / deletion of container :)
+VOLUME [ "/app/feedback" ]
+
 # start our app
 CMD [ "node", "server.js"]
