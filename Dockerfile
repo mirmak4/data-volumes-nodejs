@@ -18,7 +18,12 @@ EXPOSE 80
 
 # path inside container which should be mapped to path outside container (HOST)
 # so that this data can hopefully survive shutdown / deletion of container :)
-VOLUME [ "/app/feedback" ]
+#
+# this creates anonymous volume - which we dont want here, 
+# since it will get recreated each time our container is restarted
+#
+# instead we should use -v option for named volume when we start our image
+# VOLUME [ "/app/feedback" ]
 
 # start our app
 CMD [ "node", "server.js"]
