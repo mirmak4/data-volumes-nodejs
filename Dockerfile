@@ -25,5 +25,10 @@ EXPOSE 80
 # instead we should use -v option for named volume when we start our image
 # VOLUME [ "/app/feedback" ]
 
+
+# so that our bind mount to the /app will not overwrite the node_modules
+# or instead of this, we can use also -v anonymous volume in docker run
+# VOLUME [ "app/node_modules" ]
+
 # start our app
-CMD [ "node", "server.js"]
+CMD [ "npm", "start"]
