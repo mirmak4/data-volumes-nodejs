@@ -30,5 +30,9 @@ EXPOSE 80
 # or instead of this, we can use also -v anonymous volume in docker run
 # VOLUME [ "app/node_modules" ]
 
+# create anonymous volume for our /temp folder - for optimization
+# so that it not included in the container layer - but instead in the container filesystem
+# VOLUME [ "/app/temp" ]
+
 # start our app
 CMD [ "npm", "start"]
